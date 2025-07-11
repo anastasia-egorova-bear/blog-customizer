@@ -29,14 +29,13 @@ export const ArticleParamsForm = ({
 }: ArticleParamsFormProps) => {
 	const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
 	const rootRef = useRef<HTMLElement>(null);
-	const [menuState, setMenuState] =
-		useState<ArticleStateType>(defaultArticleState);
+	const [menuState, setMenuState] = useState<ArticleStateType>(articleState);
 
 	const handleChangeParam = (
 		key: keyof ArticleStateType,
 		value: OptionType
 	) => {
-		setMenuState({ ...articleState, [key]: value });
+		setMenuState({ ...menuState, [key]: value });
 	};
 
 	const handleToggleMenu = () => {
@@ -49,8 +48,8 @@ export const ArticleParamsForm = ({
 	};
 
 	const handleReset = () => {
-		setMenuState(defaultArticleState);
 		setArticleState(defaultArticleState);
+		setMenuState(defaultArticleState);
 	};
 
 	useClose({
@@ -81,10 +80,10 @@ export const ArticleParamsForm = ({
 					/>
 					<RadioGroup
 						options={fontSizeOptions}
-						selected={menuState.fontFamilyOption}
+						selected={menuState.fontSizeOption}
 						title='Размер шрифта'
 						name='fontSize'
-						onChange={(option) => handleChangeParam('fontFamilyOption', option)}
+						onChange={(option) => handleChangeParam('fontSizeOption', option)}
 					/>
 					<Select
 						options={fontColors}
