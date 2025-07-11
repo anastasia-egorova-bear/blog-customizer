@@ -9,23 +9,22 @@ module.exports = {
 		react: {
 			version: 'detect',
 		},
-		"import/resolver": {
+		'import/resolver': {
 			typescript: {
-				project: "tsconfig.json",
-			}
-		}
+				project: 'tsconfig.json',
+			},
+		},
 	},
 	extends: [
-		'plugin:@typescript-eslint/recommended',
-		'plugin:prettier/recommended',
-		'prettier',
-		'plugin:react/recommended',
-		'plugin:react-hooks/recommended',
-		'plugin:import/errors',
-		'plugin:import/warnings',
-		'plugin:import/typescript',
-		'plugin:eslint-comments/recommended',
-	],
+ 'airbnb',
+ 'airbnb/hooks',
+ 'airbnb-typescript'
+ ],
+ parserOptions: {
+   ecmaVersion: 'latest',
+   sourceType: 'module',
+   project: './tsconfig.json',
+ },
 	rules: {
 		semi: [2, 'always'],
 		quotes: [2, 'single', { avoidEscape: true }],
